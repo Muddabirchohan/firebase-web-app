@@ -10,11 +10,28 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="logo192.png" />
+    <script src="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.css" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyBUHBpaMux8yRIKJRR8TAog8daI30mbPhY",
+          authDomain: "ecommerce-19f2f.firebaseapp.com",
+          databaseURL: "https://ecommerce-19f2f.firebaseio.com",
+          projectId: "ecommerce-19f2f",
+          storageBucket: "ecommerce-19f2f.appspot.com",
+          messagingSenderId: "897488097425",
+          appId: "1:897488097425:web:043da4a345c30b66742f30"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
