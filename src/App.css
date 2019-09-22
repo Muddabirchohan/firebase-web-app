@@ -1,22 +1,71 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* .firebase-web-app{
+  width: 300px;
+  background-color: #1c549ce8;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: 10% 400px;
+  margin-top: 100px;
+  border: 11px solid #665948;
 }
 
-.App-link {
-  color: #09d3ac;
+.firebase-web-app button{
+  width: 150px;
+  height: 30px;
+  color: white;
+  background-color: #665948;
+  border-radius: 10%;
+  border: 2px solid white;
+  margin-left: 70px;
+}
+
+
+
+.firebase-web-app p {
+  font-size: 20px;
+  font-family: -webkit-body;
+  text-align: center;
+  color: white;
+} */
+
+nav{
+  color: black !important;
+  background-color: #3f8aca;
+}
+
+.Row{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 200px;
+}
+
+
+li{
+  margin-bottom: 2em;
+}
+
+
+.card .card-content p{
+  color: black;
+}
+
+.card{
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px silver;
+}
+
+.bg{
+  background-image: url('./assets/bg.png');
+}
+
+.side-menu{
+  background-color: #3f8aca;
+  padding-bottom: 50px !important;
+  color: white;
+}
+.btn-small{
+  background-color: #76afdf;
 }

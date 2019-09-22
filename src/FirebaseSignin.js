@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import firebase from 'firebase';
+import Navbar from './Navbar';
+
 
 export default class FirebaseSignin extends Component {
   
@@ -11,7 +13,8 @@ constructor(){
   this.state={
     confirmationResult: null,
     ready: false,
-    phoneNumber: null
+    phoneNumber: '',
+    countryCode: ''
   }
 
 }
@@ -28,7 +31,7 @@ getNumber(e){
 
 submitForm=(e)=>{
     const {phoneNumber} = this.state;
-
+// console.log(countryCode)
 e.preventDefault();
 var firebaseConfig = {
     apiKey: "AIzaSyBUHBpaMux8yRIKJRR8TAog8daI30mbPhY",
@@ -56,39 +59,63 @@ var firebaseConfig = {
 
     window.recaptchaVerifier.render().then(function(widgetId) {
         window.recaptchaWidgetId = widgetId;
-//           var phoneNumber = getPhoneNumberFromUserInput();
-//           var recaptchaResponse = grecaptcha.getResponse(window.recaptchaWidgetId);
+
 var appVerifier = window.recaptchaVerifier;
-// var phoneNumber = getPhoneNumberFromUserInput();
-firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+const cellNumber = '+92'+phoneNumber;
+console.log(cellNumber);
+firebase.auth().signInWithPhoneNumber(cellNumber, appVerifier)
   .then(function (confirmationResult) {
-    // SMS sent. Prompt user to type the code from the message, then sign the
-    // user in with confirmationResult.confirm(code).
+
+    console.log(confirmationResult);
     let code = window.prompt('Please enter the 6 digit code');
     return confirmationResult.confirm(code);
   }).catch(function (error) {
-    // Error; SMS not sent
-    // ...
+   alert("failed to verify ")
   });
     });
-
 }
 
 
-  render(){    
-    
-    return(
-        <ion-content className="firebase-web-app">
-         <div id="recaptcha-container"></div> 
 
-        <ion-item>
-          <ion-label stacked>Phone Number</ion-label>
-          <form onSubmit={(e) => this.submitForm(e)}> 
-          <input type="text" onChange={(e)=> this.getNumber(e)}/>
-          <button type="submit"> send </button>
+getCountryCode(e){
+  console.log(e.currentTarget.value);
+  this.setState({ countrycode: e.currentTarget.value})
+}
+
+  render(){    
+    console.log(this.state.countrycode)
+    return(
+      <div>
+      <Navbar/>
+
+      <div class="row">
+      <div class="col">
+        <div class="card">
+        
+          <div id="recaptcha-container"></div> 
+          
+            <p>Sign in with Phone Number</p>
+            <form onSubmit={(e) => this.submitForm(e)}> 
+            <br />
+            
+            <div>
+            <label for="enter no">Enter Number </label>
+            <input placeholder="enter number" value={this.state.phoneNumber} type="text" class="validate" onChange={(e)=> this.getNumber(e)}/>
+          </div>
+
+         
+  
+          <div class="card-action">
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        </button>
+          </div>
           </form>
-        </ion-item>
-      </ion-content>
+        </div>
+      </div>
+    </div>
+
+      </div>
     )
   }
 }
