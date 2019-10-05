@@ -78,9 +78,6 @@ render(){
         </div>
       </div>
         </div>
-        
-        
-
         <div class="col l8"> 
         <div class="card">
         <div class="card-content white-text">
