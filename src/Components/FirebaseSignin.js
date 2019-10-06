@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 import firebase from 'firebase';
-import Navbar from './Navbar';
+import Navbar from '../Navbar';
 
 
 export default class FirebaseSignin extends Component {

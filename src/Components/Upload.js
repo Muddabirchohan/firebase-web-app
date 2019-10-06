@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import fav from './assets/dummy.jpg';
-import firebase from './firebase';
+import fav from '../assets/dummy.jpg';
+import firebase,{auth, provider} from '../firebase';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import Navbar from './Navbar';
+import Navbar from '../Navbar';
 
 
 class Upload extends Component {
@@ -20,6 +20,11 @@ class Upload extends Component {
         this.handleUpload = this.handleUpload.bind(this);
     }
     
+
+    componentDidMount(){
+        // firebase.provider().then(res => console.log(res));
+    }
+
     handleChange =e =>{
         if(e.target.files[0]){
             const image = e.target.files[0];
@@ -32,7 +37,7 @@ handleUpload = () => {
     const {image} = this.state;
      var storage = firebase.storage();
 
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    const uploadTask = storage.ref(`uploads/${image.name}`).put(image);
     uploadTask.on('state_changed',
      (snapshot)=>{
          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
@@ -92,6 +97,7 @@ listAllFiles(){
             <br/>
              <Button onClick={() => this.listAllFiles.bind(this)}> list all</Button> 
              <br/>
+             
             <img src={this.state.url} height="100px" width="300px"/>
             </Paper>
             </div>

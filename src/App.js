@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './App.css';
-import FirebaseSignin from './FirebaseSignin';
+import FirebaseSignin from './Components/FirebaseSignin';
 import TemporaryDrawer from './Profile';
 import Navbar from './Navbar';
 
