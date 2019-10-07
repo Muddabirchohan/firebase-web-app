@@ -7,6 +7,7 @@ import Upload from './Components/Upload';
 import Chat from './Components/Chat';
 import Login from './Components/Login';
 import Signin from './Components/Signin';
+import Invoice from './Components/Invoice';
 
 export default class RoutersComponent extends Component {
   render() {
@@ -21,6 +22,8 @@ export default class RoutersComponent extends Component {
         <Route  path="/chat" component={Chat}/>    
         <Route  path="/login" component={Login}/>    
         <Route  path="/signin" component={Signin}/>    
+        <Route  path="/invoice" component={Invoice}/>    
+
 
         
         </Switch>
